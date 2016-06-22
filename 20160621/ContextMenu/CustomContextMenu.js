@@ -27,7 +27,7 @@ window.Hiro = window.Hiro || {};
 
     CustomContextMenu.prototype.showMenu=function (x,y) {
         CustomContextMenu.hideCurrentMenu();
-
+        
         CustomContextMenu._currentMenu=this;
         this._node.style.display="block";
         this._node.style.left=x+"px";
