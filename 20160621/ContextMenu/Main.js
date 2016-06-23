@@ -29,8 +29,7 @@
             console.log("Don't be evil");
         }));
         this._div2.customContextMenu = menu;
-
-
+        
     }
 
 
