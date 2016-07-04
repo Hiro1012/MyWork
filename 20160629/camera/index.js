@@ -4,19 +4,44 @@
 
 (function () {
 
+    window.Config = {VIDEO_WIDTH: 400, VIDEO_HEIGHT: 300};
+
     function Main() {
 
-        this._video = document.getElementById("video");
-        this._btnSavePhoto = document.getElementById("btnsavephoto");
-        this._canvas = document.createElement("canvas");
-        this._canvas.width = 1000;
-        this._canvas.height = 1000;
-        this._context2d = this._canvas.getContext("2d");
+        this.getComponents();
+        this.createCanvasInMemory();
+
+        this.addListeners();
 
         this.showCamera();
-        this.addListeners();
-        this.render();
     }
+
+    Main.prototype.createCanvasInMemory = function () {
+        this._memoryCanvas = document.createElement("canvas");
+        this._memoryContext2d = this._memoryCanvas.getContext("2d");
+    };
+
+    Main.prototype.getComponents = function () {
+        this._video = document.getElementById("video");
+        this._btnSnap = document.getElementById("btnsnap");
+        this._photoContainer = document.getElementById("photocontainer");
+    };
+
+    Main.prototype.addListeners = function () {
+        this._btnSnap.onclick = function () {
+
+            this._memoryCanvas.width = this._video.videoWidth;
+            this._memoryCanvas.height = this._video.videoHeight;
+
+            this._memoryContext2d.clearRect(0, 0, Config.VIDEO_WIDTH, Config.VIDEO_HEIGHT);
+            this._memoryContext2d.drawImage(this._video, 0, 0);
+
+            var newImg = new Image();
+            newImg.src = this._memoryCanvas.toDataURL();
+            newImg.width = 120;
+            this._photoContainer.appendChild(newImg);
+        }.bind(this);
+    };
 
     Main.prototype.showCamera = function () {
         navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
@@ -32,25 +57,6 @@
             console.error(error);
             alert("您拒绝了使用本机设备");
         });
-    };
-
-    Main.prototype.addListeners = function () {
-        this._btnSavePhoto.onclick = function () {
-            var url = this._canvas.toDataURL();
-
-            var a = document.createElement("a");
-            a.href = url;
-            a.target = "_blank";
-            a.innerHTML = "下载图片";
-            document.body.appendChild(a);
-        }.bind(this);
-    };
-
-    Main.prototype.render = function () {
-
-        this._context2d.drawImage(this._video, 0, 0);
-
-        requestAnimationFrame(this.render.bind(this));
     };
 
     new Main();

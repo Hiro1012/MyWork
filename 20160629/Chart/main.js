@@ -2,10 +2,9 @@
  * Created by Hiro on 16/6/29.
  */
 
-
 (function () {
 
-    var Config = {CIRCLE_X: 200, CIRCLE_Y: 200};
+    var Config = {CIRCLE_X: 200, CIRCLE_Y: 200, CIRCLE_R: 100};
 
     function Main() {
         this._data = [
@@ -16,12 +15,27 @@
         ];
 
         this._context2d = document.getElementById("canvas").getContext("2d");
-
         this.drawData();
+
+        this.addListeners();
     }
 
+    Main.prototype.addListeners = function () {
+        var c = this._context2d.canvas;
+        c.onclick = function () {
+            var requestFullScreen = c.requestFullScreen || c.webkitRequestFullScreen || c.mozRequestFullScreen;
+            if (requestFullScreen) {
+                requestFullScreen.call(c);
+            } else {
+                alert("您的浏览器不支持全屏");
+            }
+        }
+    };
+
     Main.prototype.drawData = function () {
+
         var lastValue = 0;
+
         for (var i = 0; i < this._data.length; i++) {
             var item = this._data[i];
             var value = item.value * Math.PI * 2;
@@ -29,7 +43,7 @@
 
             this._context2d.beginPath();
             this._context2d.moveTo(Config.CIRCLE_X, Config.CIRCLE_Y);
-            this._context2d.arc(Config.CIRCLE_X, Config.CIRCLE_Y, 100, lastValue, currentValue);
+            this._context2d.arc(Config.CIRCLE_X, Config.CIRCLE_Y, Config.CIRCLE_R, lastValue, currentValue);
             this._context2d.closePath();
             this._context2d.fillStyle = item.fillColor;
             this._context2d.fill();
