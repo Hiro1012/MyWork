@@ -22,9 +22,10 @@ http.createServer(function (request, response) {
                 break;
             }
         }
+        var add = parseInt(params["number1"]) + parseInt(params["number2"]);
 
-        response.end("<!DOCTYPE html><html><head><meta charset='UTF-8'></head><body>Hello " + decodeURI(params["name"]) + "</body></html>");
+        response.end("<h1>" + add + "</h1>");
     } else {
         response.end("<h1>404</h1>");
     }
-}).listen(8000);
+}).listen(8001);

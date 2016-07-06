@@ -16,8 +16,6 @@
         this._video.autoplay = true;
         this._video.src = "video.mp4";
 
-        this._video.loaded = false;
-
         this.render();
     }
 
