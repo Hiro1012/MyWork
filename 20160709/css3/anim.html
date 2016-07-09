@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        @keyframes anim {
+            from {
+                transform: rotate(1deg);
+                background-color: yellowgreen;
+            }
+            to {
+                transform: rotate(360deg);
+                background-color: #00a0df;
+            }
+        }
+
+        #div {
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            animation-name: anim;
+            animation-duration: 3s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+
+        }
+    </style>
+</head>
+<body>
+
+<div id="div"></div>
+
+</body>
+</html>

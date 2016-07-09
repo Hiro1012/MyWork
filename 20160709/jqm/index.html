@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="jquery/jquery.mobile-1.4.5.css">
+    <!--<link rel="stylesheet" href="jquery/jquery.mobile.structure-1.4.5.css">-->
+    <!--<link rel="stylesheet" href="jquery/jquery.mobile.theme-1.4.5.css">-->
+
+    <script src="jquery/jquery-2.1.4.js"></script>
+    <script src="jquery/jquery.mobile-1.4.5.js"></script>
+</head>
+<body>
+<div data-role="page" id="page1">
+
+    <div data-role="panel" id="settingpanel">
+        设置面版
+    </div>
+
+    <div data-role="header">
+        <h1>首页</h1>
+        <a href="#settingpanel" class="ui-btn-left" data-icon="gear">设置</a>
+
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#page2">订单</a></li>
+                <li><a href="#page3">我</a></li>
+            </ul>
+        </div>
+    </div>
+    <div role="main" class="ui-content">
+        页面内容
+        <a href="#page2">Show Page2</a>
+    </div>
+    <div data-role="footer">
+        <h4>页面底部</h4>
+    </div>
+</div>
+
+<div data-role="page" id="page2">
+    <div data-role="header">
+        <h1>订单</h1>
+    </div>
+    <div role="main" class="ui-content">
+        页面内容
+        <a href="#page1">返回首页</a>
+    </div>
+    <div data-role="footer">
+        <h4>页面底部</h4>
+    </div>
+</div>
+
+<div data-role="page" id="page3">
+    <div data-role="header">
+        <h1>我</h1>
+    </div>
+    <div role="main" class="ui-content">
+        <ul data-role="listview">
+            <li>第一项</li>
+            <li>第二项</li>
+            <li>第三项</li>
+            <li>第四项</li>
+            <li><a href="#page1">返回首页</a></li>
+        </ul>
+    </div>
+    <div data-role="footer">
+        <h4>页面底部</h4>
+    </div>
+</div>
+
+</body>
+</html>
