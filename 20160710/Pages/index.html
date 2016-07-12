@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="jquery/jquery.mobile-1.4.5.css">
+    <link rel="stylesheet" href="jquery/jquery.mobile.structure-1.4.5.css">
+    <link rel="stylesheet" href="jquery/jquery.mobile.theme-1.4.5.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="jquery/jquery-2.1.4.js"></script>
+    <script src="jquery/jquery.mobile-1.4.5.js"></script>
+</head>
+<body>
+
+<div data-role="page" id="img1" class="demo-page" data-dom-cache="true"
+     data-next="img2">
+</div>
+<div data-role="page" id="img2" class="demo-page" data-dom-cache="true"
+     data-prev="img1" data-next="img3">
+</div>
+<div data-role="page" id="img3" class="demo-page" data-dom-cache="true"
+     data-prev="img2" data-next="img4">
+</div>
+<div data-role="page" id="img4" class="demo-page" data-dom-cache="true"
+     data-prev="img3" data-next="img5">
+</div>
+<div data-role="page" id="img5" class="demo-page" data-dom-cache="true"
+     data-prev="img4" data-next="img6">
+</div>
+<div data-role="page" id="img6" class="demo-page" data-dom-cache="true"
+     data-prev="img5">
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

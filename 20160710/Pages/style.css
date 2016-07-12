@@ -1,0 +1,24 @@
+#img1 {
+    background-image: url("img/074D.png");
+}
+#img2 {
+    background-image: url("img/093D.png");
+}
+#img3 {
+    background-image: url("img/096D.png");
+}
+#img4 {
+    background-image: url("img/106D.png");
+}
+#img5 {
+    background-image: url("img/108D.png");
+}
+#img6 {
+    background-image: url("img/112D.png");
+}
+
+.demo-page {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
